@@ -54,7 +54,9 @@ data=gpuArray(int16(RData));
 g = gpuDevice;
 kernel_name = 'beamforming3D_GPU_cuda';
 % bf_flag = 'beamforming3D_cuda_v1';
-system('nvcc beamforming3D_GPU_cuda.cu -ptx -o beamforming3D_GPU_cuda.ptx'); % compileCUDA(kernel_name)
+if ~isfile([kernel_name '.ptx'])
+    system(['nvcc ' kernel_name '.cu -ptx -o ' kernel_name '.ptx']); % compileCUDA(kernel_name)
+end
 k = parallel.gpu.CUDAKernel([kernel_name '.ptx'],[kernel_name '.cu']); % ,bf_flag);
 
 setConstantMemory(k,...

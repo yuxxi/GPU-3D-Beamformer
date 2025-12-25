@@ -12,7 +12,7 @@
 % imagesc(squeeze(abs(bf(90,:,:)))'), 
 % figure
 % imagesc(squeeze(abs(bf2(90,:,:)))')
-
+load('MatFiles\fUSloop.mat');
 figure, 
 for x=1:98
     subplot(1,2,1)
@@ -23,7 +23,7 @@ for x=1:98
 %     imagesc(squeeze(abs(bf(x,:,:)))'), 
 %     subplot(1,2,2)
 %     imagesc(squeeze(abs(IQData(x,:,:)))'), 
-    sgtitle(x)
+    sgtitle(num2str(x))
 %     subplot(1,2,1)
 %     imagesc(squeeze(abs(bf(x,:,:)))'), 
 %     subplot(1,2,2)
